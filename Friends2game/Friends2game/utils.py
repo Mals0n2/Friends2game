@@ -2,7 +2,7 @@ from io import BytesIO
 from PIL import Image
 import math
 
-##import requests
+import requests
 
 from Friends2game.database import *
 

@@ -17,7 +17,7 @@
     <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
     <Name>Friends2game</Name>
     <RootNamespace>Friends2game</RootNamespace>
-    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <InterpreterId>MSBuild|sobol|$(MSBuildProjectFullPath)</InterpreterId>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,7 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Friends2game\" />
-    <Folder Include="Friends2game\img\" />
+    <Folder Include="Friends2game\static\img\" />
     <Folder Include="Friends2game\static\" />
     <Folder Include="Friends2game\static\content\" />
     <Folder Include="Friends2game\static\fonts\" />
@@ -47,6 +47,12 @@
     <Folder Include="Friends2game\templates\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Friends2game\static\img\1.png" />
+    <Content Include="Friends2game\static\img\2.png" />
+    <Content Include="Friends2game\static\img\3.png" />
+    <Content Include="Friends2game\static\img\jayce.jpg" />
+    <Content Include="Friends2game\static\img\jinx.jpg" />
+    <Content Include="Friends2game\static\img\viktor.jpg" />
     <Content Include="Friends2game\templates\login.html" />
     <Content Include="Friends2game\templates\register.html" />
     <Content Include="requirements.txt" />

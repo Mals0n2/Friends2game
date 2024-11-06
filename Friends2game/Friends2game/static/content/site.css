@@ -58,7 +58,7 @@ a {
     }
 
 body {
-    background-color: #76E4FA;
+    background-color: #7D27E6;
     color: white;
 }
 
@@ -117,14 +117,14 @@ body {
 .col-3 {
     flex-basis: 30%;
     border-radius: 30px;
-    color: #83CEEB;
+    color: #595959;
     background-color: white;
 }
 
     .col-3 p {
         font-size: 10px;
         margin: 12px 0;
-        color: #83CEEB;
+        color: #595959;
     }
 
 
@@ -204,7 +204,6 @@ body {
     .opinions .col-3 {
         text-align: center;
         padding: 50px 20px;
-        box-shadow: 0 0 35px 2px #2c2c51;
         cursor: pointer;
     }
 
@@ -243,7 +242,7 @@ body {
 }
 
 .profile-box {
-    background: #83CEEB;
+    background: #595959;
     text-align: center;
     color: #fff;
     position: relative;
@@ -352,7 +351,7 @@ section {
 
 .location {
     background-color: white;
-    color: #83CEEB;
+    color: #595959;
     margin-bottom: 10px;
     border-radius: 25px;
     padding: 3px;
@@ -460,9 +459,8 @@ h1 {
 .login-wrapper {
     width: 380px;
     max-width: 100%;
-    background: #83CEEB;
+    background: #595959;
     border: 2px solid rgba(255, 255, 255 .2);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     color: #fff;
     border-radius: 10px;
     padding: 35px 45px;
@@ -479,7 +477,7 @@ h1 {
         width: 100%;
         height: 50px;
         margin: 30px 0;
-        color: #83CEEB;
+        color: #595959;
     }
 
 .input-box input {
@@ -496,7 +494,7 @@ h1 {
 }
 
     .input-box input::placeholder {
-        color: #83CEEB;
+        color: #595959;
     }
 
 .input-box i {
@@ -538,10 +536,9 @@ h1 {
     border: none;
     outline: none;
     border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
     cursor: pointer;
     font-size: 16px;
-    color: #83CEEB;
+    color: #595959;
     font-weight: 600;
 }
 
@@ -579,10 +576,9 @@ h1 {
 }
 
 .register-container {
-    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     max-width: 700px;
     width: 100%;
-    background: #83CEEB;
+    background: #595959;
     padding: 25px 30px;
     border-radius: 10px;
 }
@@ -595,7 +591,6 @@ h1 {
     }
 
         .register-container .register-title::before {
-            content: '';
             position: absolute;
             left: 0;
             bottom: 0;
@@ -693,7 +688,7 @@ form .register-button {
         height: 100%;
         width: 100%;
         outline: none;
-        color: #83CEEB;
+        color: #595959;
         border: none;
         font-size: 18px;
         font-weight: 700;
@@ -759,7 +754,7 @@ form .register-button {
     border-radius: 30px;
     background-color: white;
     height: 80px;
-    color: #83CEEB;
+    color: #595959;
     text-align: center;
     width: 800px;
 }
@@ -800,7 +795,7 @@ form .register-button {
     border-radius: 50%;
     margin-bottom: 5px;
     margin-top: 30px;
-    border: 3px solid #83CEEB;
+    border: 3px solid #595959;
     transition: transform 0.4s;
 }
 
@@ -837,7 +832,7 @@ form .register-button {
     border-radius: 50%;
     margin-bottom: 30px;
     margin-top: 30px;
-    border: 3px solid #83CEEB;
+    border: 3px solid #595959;
     transition: transform 0.4s;
     position: relative;
 }
@@ -884,7 +879,7 @@ form .register-button {
     background-color: white;
     font-size: 22px;
     height: 85px;
-    color: #83CEEB;
+    color: #595959;
     text-align: center;
     width: 300px;
     margin-bottom: 30px;
@@ -901,7 +896,7 @@ form .register-button {
 }
 
 .smaller-circle {
-    border: 3px solid #83CEEB;
+    border: 3px solid #595959;
     padding: 2px;
     background-color: white;
     height: 40px;
@@ -920,7 +915,7 @@ form .register-button {
 
 .popup {
     width: 400px;
-    background: #83CEEB;
+    background: #595959;
     border-radius: 10px;
     border-color: white;
     border-width: 2px;
@@ -953,7 +948,7 @@ form .register-button {
     margin-top: 10px;
     width: 70%;
     height: 90vh;
-    background-color: #83CEEB;
+    background-color: #595959;
     border-radius: 20px;
     padding: 10px;
 }
@@ -1065,7 +1060,7 @@ form .register-button {
     top: 50%;
     float: left;
     border: solid 1px white;
-    background-color: #83CEEB;
+    background-color: #595959;
     padding: 10px;
     border-radius: 20px;
     resize: none;
@@ -1103,7 +1098,7 @@ form .register-button {
 }
 
     .last-message-box:hover {
-        background-color: #83CEEB;
+        background-color: #595959;
     }
 
 .select-user-pic {
@@ -1130,7 +1125,7 @@ form .register-button {
     }
 
     .calendar-table th {
-        background-color: #83CEEB;
+        background-color: #595959;
     }
 
     .calendar-table input {
@@ -1188,7 +1183,7 @@ form .register-button {
     }
 
 ::placeholder {
-    color: #83CEEB;
+    color: #595959;
 }
 
 .chat-without {

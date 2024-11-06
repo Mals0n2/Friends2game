@@ -39,6 +39,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Friends2game\" />
+    <Folder Include="Friends2game\img\" />
     <Folder Include="Friends2game\static\" />
     <Folder Include="Friends2game\static\content\" />
     <Folder Include="Friends2game\static\fonts\" />

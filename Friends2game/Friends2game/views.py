@@ -34,6 +34,7 @@ login_manager = LoginManager()
 login_manager.init_app(app)
 
 
+##test Git##
 @login_manager.user_loader
 def load_user(user_id):
     user = get_user(user_id)

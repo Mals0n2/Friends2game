@@ -55,6 +55,7 @@
     <Content Include="Friends2game\static\img\viktor.jpg" />
     <Content Include="Friends2game\templates\login.html" />
     <Content Include="Friends2game\templates\register.html" />
+    <Content Include="Friends2game\templates\user_profile.html" />
     <Content Include="requirements.txt" />
     <Content Include="Friends2game\static\content\bootstrap.css" />
     <Content Include="Friends2game\static\content\bootstrap.min.css" />

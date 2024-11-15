@@ -362,3 +362,7 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /Friends2game/sobol
+/Friends2game/env
+/Friends2game/Friends2game/sobol
+/Friends2game/sobol
+

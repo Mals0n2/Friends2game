@@ -958,7 +958,7 @@ form .register-button {
     white-space: nowrap;
     border-radius: 20px;
     margin: auto;
-    background-color: white;
+    background-color: black;
     width: 95%;
     height: 130px;
     padding: 20px;
@@ -992,7 +992,7 @@ form .register-button {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #76E4FA;
+        
         filter: blur(10px);
         z-index: -1;
     }
@@ -1020,7 +1020,7 @@ form .register-button {
         left: 0;
         width: 100%;
         height: 100%;
-        background-color: #76E4FA;
+        
         filter: blur(10px);
         z-index: -1;
     }
@@ -1084,9 +1084,9 @@ form .register-button {
     padding: 10px;
     border-radius: 20px;
     background-color: white;
-    color: #76E4FA;
+    
     cursor: pointer;
-    border: solid 1px #76E4FA;
+    border: solid 1px white;
 }
 
 .last-message-box {
@@ -1188,7 +1188,7 @@ form .register-button {
 
 .chat-without {
     font-size: 30px;
-    color: #76E4FA;
+    color: white;
     margin-top: 25px;
 }
 

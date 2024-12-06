@@ -1,0 +1,189 @@
+﻿{% extends "layout.html" %}
+
+    {% block content %}
+<div class="chat-container">
+    <div class="select-user">
+        {% if users %}
+        {% for user in users %}
+        {% if user.user_id not in selected_users %}
+        <div class="user" data-user-id="{{ user.user_id }}">
+            {% if user.photo_base64 %}
+            <img src="data:image/jpeg;base64,{{ user.photo_base64 }}" class="select-user-pic">
+            {% else %}
+            <img src="/static/default_profile.jpg" class="mainpage-pic">
+            {% endif %}
+            <br />
+            {{ user.name }}
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% else %}
+        <p class="chat-without">Nie masz jeszcze Swojej pary</p>
+        {% endif %}
+    </div>
+    <div class="last-message">
+        {% for message in last_messages %}
+        <a href="#" style="text-decoration: none;">
+            <div class="last-message-box" data-user-id="{{ message.sender_id }}">
+                <div class="message">
+                    <strong class="chat-size">{{ message.sender_name }}</strong>: {{ message.content | truncate(10, True, '...') }}
+                </div>
+                <div style="float:right">
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+
+
+    <div class="chat-container-user">
+
+        <div class="message-container" id="messageContainer">
+            <style>
+                .stars {
+                    display: inline-block;
+                }
+
+                .fa-star {
+                    color: #ccbbbb9e;
+                    cursor: pointer;
+                }
+
+                    .fa-star:hover,
+                    .fa-star.active {
+                        color: #ffcc00;
+                    }
+
+                .selected {
+                    color: #ffc107; /* Zolty kolor dla zaznaczonych gwiazdek */
+                }
+            </style>
+            <div class="block-user">
+                <div style="display: inline-block;">
+                    <div class="stars" data-rating="0">
+                        <i class="fa fa-star" data-index="1"></i>
+                        <i class="fa fa-star" data-index="2"></i>
+                        <i class="fa fa-star" data-index="3"></i>
+                        <i class="fa fa-star" data-index="4"></i>
+                        <i class="fa fa-star" data-index="5"></i>
+                    </div>
+                </div>
+                <a href="javascript:void(0);" onclick="confirmBlock('{{ url_for("block_user", user_id=user_id, block_id=receiver_id) }}')">
+                    <i style="padding: 10px; color: red" class="fa-solid fa-ban"></i>
+                </a>
+                <a href="{{ url_for('user_report', user_id=receiver_id) }}"><i style="color: black" class="fa-regular fa-thumbs-down"></i></a>
+            </div>
+            {% for message in messages %}
+            <div class="message">
+                <strong class="chat-size">{{ message.sender_name }}</strong>: {{ message.content }}
+            </div>
+            {% endfor %}
+        </div>
+
+        <form class="message-form" id="messageForm">
+            <div class="textarea-container">
+                <textarea class="message-input" name="content" placeholder="Napisz wiadomo��"></textarea>
+                <input type="submit" class="submit-button" value="Wy�lij">
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.1.2/socket.io.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const starsContainer = document.querySelector(".stars");
+
+        starsContainer.addEventListener("click", function (e) {
+            if (e.target.matches(".fa-star")) {
+                const rating = parseInt(e.target.getAttribute("data-index"));
+                starsContainer.setAttribute("data-rating", rating);
+                updateStarColors(rating);
+                // Tutaj mozesz wys�ac zadanie do serwera Flask, aby zapisac ocene w bazie danych
+            }
+        });
+
+        function updateStarColors(rating) {
+            const stars = starsContainer.querySelectorAll(".fa-star");
+            stars.forEach((star, index) => {
+                star.classList.toggle("selected", index < rating);
+            });
+        }
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var socket = io.connect('http://' + document.domain + ':' + location.port);
+
+        function scrollToBottom() {
+            var messageContainer = document.getElementById("messageContainer");
+            messageContainer.scrollTop = messageContainer.scrollHeight;
+        }
+        scrollToBottom();
+
+        var currentUserName = "{{ current_user.name }}";
+
+        window.addNewMessage = function (senderName, content) {
+            var messageContainer = document.getElementById("messageContainer");
+            var newMessage = document.createElement("div");
+            newMessage.className = "message";
+            newMessage.innerHTML = '<strong class="chat-size">' + senderName + '</strong>: ' + content;
+            messageContainer.appendChild(newMessage);
+
+            scrollToBottom();
+        };
+
+        function handleUserSelection(userId) {
+            window.location.href = '/chat/' + userId;
+        }
+
+        $('.select-user .user').click(function () {
+            var selectedUserId = $(this).data('user-id');
+            handleUserSelection(selectedUserId);
+        });
+
+        // Handle click event for last-message-box
+        $('.last-message-box').click(function () {
+            var selectedUserId = $(this).data('user-id');
+            handleUserSelection(selectedUserId);
+        });
+
+        $('#messageForm').submit(function (e) {
+            e.preventDefault();
+            var content = $('.message-input').val();
+
+            if (content.trim() !== '') {
+                $.ajax({
+                    type: 'POST',
+                    url: window.location.href,
+                    data: { content: content },
+                    success: function () {
+                        $('.message-input').val('');
+                    }
+                });
+            }
+        });
+
+        $('.message-input').keydown(function (e) {
+            if (e.which === 13) {
+                e.preventDefault();
+                $('#messageForm').submit();
+            }
+        });
+
+        socket.on('message', function (data) {
+            addNewMessage(data.sender_name, data.content);
+        });
+    });
+</script>
+<script>
+    function confirmBlock(url) {
+        var result = confirm("Czy na pewno chcesz zablokowa� tego u�ytkownika?");
+        if (result) {
+            window.location.href = url;
+        }
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="reports-container">
+    <h2>Raporty Bledow</h2>
+    <table class="table table-striped ">
+        <thead class="th">
+            <tr>
+                <th>ID</th>
+                <th>User ID</th>
+                <th>Tytu&#322;</th>
+                <th>Opis</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+        <tbody class="tb-dark">
+            {% for report in reports %}
+            <tr>
+                <td>{{ report[0] }}</td>
+                <td>{{ report[1] }}</td>
+                <td>{{ report[3] }}</td>
+                <td>{{ report[4] }}</td>
+                <td>{{ report[2] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

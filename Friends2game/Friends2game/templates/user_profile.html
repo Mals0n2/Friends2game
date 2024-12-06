@@ -9,27 +9,27 @@
 
 <div class="popupbg">
     <div class="popup">
-        <h3>Wybierz intensywnosc:</h3>
+        <h3>Wybierz intensywnosc</h3>
         <section>
             <div class="tile" style="background-color:white;">
                 <input type="radio" name="intensivity" id="1">
                 <label class="profile-label" for="1">
-                    <i class="fas fa-running"></i>
+                    <i class="fas fa-baby"></i>
                     <h6>Poczatkujacy</h6>
                 </label>
             </div>
             <div class="tile" style="background-color:white;">
                 <input type="radio" name="intensivity" id="2">
                 <label class="profile-label" for="2">
-                    <i class="fas fa-biking"></i>
+                    <i class="fas fa-person"></i>
                     <h6>Srednio Zaawansowany</h6>
                 </label>
             </div>
             <div class="tile" style="background-color:white;">
                 <input type="radio" name="intensivity" id="3">
                 <label class="profile-label" for="3">
-                    <i class="fas fa-swimmer"></i>
-                    <h6>Profesjonalnie</h6>
+                    <i class="fas fa-running"></i>
+                    <h6>Profesjonalista</h6>
                 </label>
             </div>
         </section>
@@ -38,7 +38,7 @@
 
 <div class="profile-container">
     <div class="profile-box">
-        <div class="error2" style="position:relative;z-index:3;font-size: 14px;">{{error}}</div>
+        <!--<div class="error2" style="position:relative;z-index:3;font-size: 14px;">{{error}}</div>-->
         <div class="upload">
             <img src="data:image/jpeg;base64,{{ user_photo }}" class="profile-pic">
             <div class="round">
@@ -107,6 +107,7 @@
     <!-- Form Preferences and Interests Section -->
     <div class="profile-container">
         <div class="profile-box">
+            <div class="error2" style="position:relative;z-index:3;font-size: 14px;">{{error}}</div>
             <form id="preferencesForm">
                 <h4>Preferowany wiek</h4>
                 <label for="min_age">Od:</label><br />
@@ -116,15 +117,15 @@
                 <input type="range" id="max_age" name="max_age" min="18" max="80" value="{{ preferences.max_age }}" required>
                 <span id="max_age_display">{{ preferences.max_age }}</span><br /></br>
                 <!--<label for="preferred_distance">Preferowana odległość</label><br />
-                <div style="width:357px">
-                    <input type="range" id="preferred_distance" name="preferred_distance" min="1" max="500" value="{{ preferences.preferred_distance }}" style="width: 300px;" required>
-                    <span id="preferred_distance_display">{{ preferences.preferred_distance }}</span> km
-                </div><br />-->
+        <div style="width:357px">
+            <input type="range" id="preferred_distance" name="preferred_distance" min="1" max="500" value="{{ preferences.preferred_distance }}" style="width: 300px;" required>
+            <span id="preferred_distance_display">{{ preferences.preferred_distance }}</span> km
+        </div><br />-->
                 <label for="gender_preference">Szukam:</label>
                 <select id="gender_preference" name="gender_preference" required>
-                    <option value="Mężczyzna" {% if preferences.gender_preference == 'Mężczyzna' %} selected {% endif %}>Mężczyzna</option>
-                    <option value="Kobieta" {% if preferences.gender_preference == 'Kobieta' %} selected {% endif %}>Kobieta</option>
-                    <option value="Wszyscy" {% if preferences.gender_preference == 'Wszyscy' %} selected {% endif %}>Wszyscy</option>
+                    <option value="Mężczyzna" {% if preferences.gender_preference=='Mężczyzna' %} selected {% endif %}>Mężczyzna</option>
+                    <option value="Kobieta" {% if preferences.gender_preference=='Kobieta' %} selected {% endif %}>Kobieta</option>
+                    <option value="Wszyscy" {% if preferences.gender_preference=='Wszyscy' %} selected {% endif %}>Wszyscy</option>
 
                 </select>
                 <br /><br />
@@ -138,22 +139,22 @@
                     <div class="tile">
                         <input type="checkbox" name="sports" id="running" data-sport-id="1" {% if user_sports[0] %} checked {% endif%}>
                         <label class="profile-label" for="running">
-                            <i class="fas fa-running"></i>
-                            <h6>Bieganie</h6>
+                            <i class="fas fa-gun"></i>
+                            <h6>Counter Strike 2</h6>
                         </label>
                     </div>
                     <div class="tile">
                         <input type="checkbox" name="sports" id="biking" data-sport-id="2" {% if user_sports[1] %} checked {% endif%}>
                         <label class="profile-label" for="biking">
-                            <i class="fas fa-biking"></i>
-                            <h6>Jazda na rowerze</h6>
+                            <i class="fas fa-plane"></i>
+                            <h6>World of planes</h6>
                         </label>
                     </div>
                     <div class="tile">
                         <input type="checkbox" name="sports" id="swimming" data-sport-id="3" {% if user_sports[2] %} checked {% endif%}>
                         <label class="profile-label" for="swimming">
-                            <i class="fas fa-swimmer"></i>
-                            <h6>Plywanie</h6>
+                            <i class="fas fa-car"></i>
+                            <h6>GTA V</h6>
                         </label>
                     </div>
                 </section>
@@ -161,26 +162,26 @@
                     <div class="tile">
                         <input type="checkbox" name="sports" id="gym" data-sport-id="4" {% if user_sports[3] %} checked {% endif%}>
                         <label class="profile-label" for="gym">
-                            <i class="fas fa-dumbbell"></i>
-                            <h6>Silownia</h6>
+                            <i class="fas fa-square"></i>
+                            <h6>Minecraft</h6>
                         </label>
                     </div>
                     <div class="tile">
                         <input type="checkbox" name="sports" id="soccer" data-sport-id="5" {% if user_sports[4] %} checked {% endif%}>
                         <label class="profile-label" for="soccer">
                             <i class="fas fa-futbol"></i>
-                            <h6>Pilka nozna</h6>
+                            <h6>Fifa 2024</h6>
                         </label>
                     </div>
                     <div class="tile">
                         <input type="checkbox" name="sports" id="basketball" data-sport-id="6" {% if user_sports[5] %} checked {% endif%}>
                         <label class="profile-label" for="basketball">
                             <i class="fas fa-basketball"></i>
-                            <h6>Koszykowka</h6>
+                            <h6>NBA 2K24</h6>
                         </label>
                     </div>
                 </section>
-                <section>
+                <!--<section>
                     <div class="tile">
                         <input type="checkbox" name="sports" id="volleyball" data-sport-id="7" {% if user_sports[6] %} checked {% endif%}>
                         <label class="profile-label" for="volleyball">
@@ -248,7 +249,7 @@
                             <h6>Tenis stolowy</h6>
                         </label>
                     </div>
-                </section>
+                </section>-->
 
             </div>
 
